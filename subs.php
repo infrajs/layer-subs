@@ -13,15 +13,14 @@
  * object значит что subs будет восприниматься как объект свойства которого это массивы слоёв.
  */
 
-namespace infrajs\controller\ext;
+namespace infrajs\layer\subs;
 
-use infrajs\controller\Controller;
+use infrajs\event\Event;
 
-class subs
+class Subs
 {
 	public static function init()
 	{
-		global $infra,$infrajs;
 		Event::waitg('oninit', function () {
 			Controller::runAddKeys('subs');
 			/*
