@@ -4,7 +4,7 @@ use infrajs\path\Path;
 use infrajs\event\Event;
 
 Event::handler('oninit', function () {
-	Controller::runAddKeys('subs');
+	Run::runAddKeys('subs');
 
 	if (!class_exists('External')) return;
 	External::add('subs', 'divs');
