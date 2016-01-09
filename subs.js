@@ -1,4 +1,4 @@
-define('?-layer-subs/subs.js', ['?-event/event.js'], function () {
+(function () {
 	/**
 	 * Расширение subs
 	 * Суть расширения сводится к ключам значения которых автоматически подставятся в ряд свойст слоя указанного в subs
@@ -10,7 +10,7 @@ define('?-layer-subs/subs.js', ['?-event/event.js'], function () {
 	 * Теперь infrajs.run(layers) будет бегать по слоям описанным и в свойстве subs
 	 * object значит что subs будет восприниматься как объект свойства которого это массивы слоёв
 	 */
-	infra.wait(infrajs,'oninit',function(){
+	Event.one('Infrajs.oninit',function(){
 		infrajs.runAddKeys('subs');
 		infrajs.externalAdd('subs','divs');
 	});
@@ -44,4 +44,4 @@ define('?-layer-subs/subs.js', ['?-event/event.js'], function () {
 			if(!layer.tplroot)layer.tplroot=layer.div;
 		}
 	}
-});
+})();

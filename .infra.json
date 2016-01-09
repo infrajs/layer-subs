@@ -1,3 +1,5 @@
 {
-	"tester":"tests/"
+	"tester":"tests/",
+	"dependencies":"event",
+	"js":["subs.js","infra.js"]
 }
