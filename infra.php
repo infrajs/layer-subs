@@ -3,7 +3,7 @@ namespace infrajs\controller;
 use infrajs\path\Path;
 use infrajs\event\Event;
 
-Event::handler('oninit', function () {
+Event::handler('Infrajs.oninit', function () {
 	Run::runAddKeys('subs');
 
 	if (!class_exists('External')) return;
