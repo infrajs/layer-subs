@@ -2,12 +2,13 @@
 namespace infrajs\controller;
 use infrajs\path\Path;
 use infrajs\event\Event;
+use infrajs\each\Each;
 
 Event::handler('Infrajs.oninit', function () {
 	Run::runAddKeys('subs');
 
-	if (!class_exists('External')) return;
-	External::add('subs', 'divs');
+	//if (!class_exists('External')) return;
+	//External::add('subs', 'divs');
 },'subs:external,div');
 
 Event::handler('layer.oncheck', function (&$layer) {

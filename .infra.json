@@ -1,5 +1,6 @@
 {
 	"tester":"tests/",
 	"dependencies":"event",
-	"js":["subs.js","infra.js"]
+	"js":["subs.js","infra.js"],
+	"require":"infra.php"
 }
