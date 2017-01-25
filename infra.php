@@ -12,8 +12,8 @@ Event::handler('Infrajs.oninit', function () {
 },'subs:external,div');
 
 Event::handler('layer.oncheck', function (&$layer) {
-	if (@!$layer['parent']) return;
-	if (@$layer['parent']['subs']) {
+	if (empty($layer['parent'])) return;
+	if (!empty($layer['parent']['subs'])) {
 		//forx бежим по свойствам объекта, как по массивам. Массивы могут быть вложенные
 		//var_dump($layer['parent']['subs']);
 		$key = Each::forx($layer['parent']['subs'], function (&$l, $key) use (&$layer) {//Такую пробежку у родителя сразу для всех детей делать не нельзя, так как external у детей ещё не сделан.
@@ -28,13 +28,9 @@ Event::handler('layer.oncheck', function (&$layer) {
 			$layer['sub'] = true;
 		}
 	}
-	if (@$layer['sub']) {
+	if (!empty($layer['sub'])) {
 		//if(@!$layer['div'])$layer['div']=$key;
-		if (@!$layer['tpl']) {
-			$layer['tpl'] = $layer['parent']['tpl'];
-		}
-		if (@!$layer['tplroot']) {
-			$layer['tplroot'] = $layer['div'];
-		}
+		if (empty($layer['tpl'])) $layer['tpl'] = $layer['parent']['tpl'];
+		if (empty($layer['tplroot'])) $layer['tplroot'] = $layer['div'];
 	}
 }, 'subs:external,div');
