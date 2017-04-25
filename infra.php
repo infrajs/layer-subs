@@ -4,14 +4,14 @@ use infrajs\path\Path;
 use infrajs\event\Event;
 use infrajs\each\Each;
 
-Event::handler('Infrajs.oninit', function () {
+Event::handler('Controller.oninit', function () {
 	Run::runAddKeys('subs');
 
 	//if (!class_exists('External')) return;
 	//External::add('subs', 'divs');
 },'subs:external,div');
 
-Event::handler('layer.oncheck', function (&$layer) {
+Event::handler('Layer.oncheck', function (&$layer) {
 	if (empty($layer['parent'])) return;
 	if (!empty($layer['parent']['subs'])) {
 		//forx бежим по свойствам объекта, как по массивам. Массивы могут быть вложенные
